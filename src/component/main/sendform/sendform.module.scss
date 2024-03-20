@@ -1,0 +1,65 @@
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1060px) {
+    @content;
+  }
+}
+
+.sendform {
+  background-color: black;
+  color: white;
+  padding: 50px 5%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+
+      max-width: 950px;
+      margin-inline: auto;
+    }
+  }
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      max-width: 300px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__info {
+    text-align: center;
+  }
+
+  &__online {
+    display: inline-block;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #ecbc42;
+      border-radius: 2px;
+    }
+  }
+}
