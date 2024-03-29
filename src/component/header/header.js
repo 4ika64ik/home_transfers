@@ -32,7 +32,7 @@ function Header() {
         <div class={s.content}>
           <div class={s.infoe}>
             <h1 className={s.zagolovok}>Ищем водителей в русские семьи</h1>
-            <p className={s.info}>Прием на работу без посредников Берлин-Германия</p>
+            <p className={s.info}>Прием на работу без посредников <br></br>   Берлин-Германия</p>
             <a href='#sendform' className={s.button}>Оставить заявку</a>
           </div>
           <img src={car} className={s.car} alt='car'/>
