@@ -1,27 +1,23 @@
 import axios from 'axios';
 import s from './form.module.scss';
 import { useState, useEffect } from 'react';
-import ReactPixel from 'react-facebook-pixel';
 import moment from 'moment';
 import 'moment-timezone';
 
 function Form(props) {
- 
- 
   const saits = "VODILA_FAM";
-
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [nems, setPxl] = useState('');
   const [date, setDate] = useState('');
+  const [restorel, setRestorel] = useState(false);
 
   useEffect(() => {
     const fetchCountry = async () => {
       try {
         const response = await axios.get('https://ipinfo.io/json');
-        const data = response.data;
-        setCountry(data.country);
+        setCountry(response.data.country);
       } catch (error) {
         console.error('Error fetching country:', error);
       }
@@ -30,10 +26,8 @@ function Form(props) {
     fetchCountry();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const pxParam = urlParams.get('nems');
-    setPxl(pxParam);
+    setPxl(urlParams.get('nems'));
 
-    // Set current date and time when component mounts
     const currentDate = moment().tz('Europe/Kiev').format();
     setDate(currentDate);
   }, []);
@@ -45,29 +39,18 @@ function Form(props) {
     const name = formData.get('name');
     const phone = formData.get('phone');
 
+    const message = `New lead:\nName: ${name}\nPhone: ${phone}\nCountry: ${country}\nSource: ${nems}\nDate: ${date}`;
+    const telegramAPI = 'https://api.telegram.org/bot6439485700:AAFTd-Tp9vGlxMraCboo0Qv45Mpp7jVU-Wo/sendMessage';
+    const chatId = '-4109650804';
+
     try {
-      const requestData = {
-        name: name,
-        phone: phone,
-        saits: saits,
-        country: country,
-        nems: nems,
-        date: date,
-      };
+      await axios.post(telegramAPI, {
+        chat_id: chatId,
+        text: message,
+        parse_mode: 'Markdown'
+      });
 
-      // Send data to CRM server using Axios
-      const response = await axios.post('https://crmmode.online/api/posts', requestData);
-
-      // Output result to console
-      console.log(response.data);
-
-      // Send 'Lead' event to Facebook pixel
-      ReactPixel.track('Lead');
-
-      // Reset form after successful submission
       e.target.reset();
-
-      // Show confirmation message
       setRestorel(true);
       setTimeout(() => {
         setRestorel(false);
@@ -76,8 +59,6 @@ function Form(props) {
       console.error('Form submission failed', error);
     }
   };
-
-  const [restorel, setRestorel] = useState(false);
 
   return (
     <div className={s.form}>
