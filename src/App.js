@@ -14,7 +14,7 @@ function App() {
       <Main />
       <Footer />
       {/* Инициализация Яндекс.Метрики с вашим ID счетчика */}
-      <YMInitializer accounts={[96923782]} options={{ webvisor: true }} />
+      <YMInitializer accounts={[97170920]} options={{ webvisor: true }} />
     </div>
   );
 }
