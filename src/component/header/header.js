@@ -12,27 +12,29 @@ function Header() {
 
   return (
       <header className={s.header}>
-        <div class={s.top}>
+        <div className={s.top}>
           <p className={s.logo}><span className={s.logo_home}>HOME</span>-Transfer</p>
           <div className={s.nav}>
             <a href='#usov' className={s.nav__item}>Условия</a>
             <a href='#etap' className={s.nav__item}>Этапы работы</a>
             <a href='#sotr' className={s.nav__item}>Для сотрудников</a>
-            <div class={s.scale}><a href='#sendt' className={`${s.nav__item} ${s.nav__item_act}`}>Обратная связь</a></div>
+            <div className={s.scale}>
+              <a href='#sendt' className={`${s.nav__item} ${s.nav__item}_act`}>Обратная связь</a>
+            </div>
           </div>
         </div>
 
-        {isMenuVisible ? (
-            <a href="#menu" onClick={handleClick}><img src={burgmenu} className={s.menu} alt='menu'/></a>
-          ) : (
-            <a href="#1" onClick={handleClick}><img src={burgmenu} className={s.menu} alt='menu'/></a>
-          )
-        }
+        <a href={isMenuVisible ? "#menu" : "#1"} onClick={handleClick}>
+          <img src={burgmenu} className={s.menu} alt='menu'/>
+        </a>
 
-        <div class={s.content}>
-          <div class={s.infoe}>
-            <h1 className={s.zagolovok}>Ищем водителей в русские семьи</h1>
-            <p className={s.info}>Прием на работу без посредников <br></br>   Берлин-Германия</p>
+        <div className={s.content}>
+          <div className={s.infoe}>
+            <h1 className={s.zagolovok}>Ищем водителей по всей Европе</h1>
+            <p className={s.info}>
+              Присоединяйтесь к нашей команде и наслаждайтесь конкурентоспособной зарплатой, <br />
+              гибким графиком.
+            </p>
             <a href='#sendform' className={s.button}>Оставить заявку</a>
           </div>
           <img src={car} className={s.car} alt='car'/>

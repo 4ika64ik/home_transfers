@@ -162,12 +162,37 @@
   }
 }
 
-.vigoda {
-  background-color: #ecbc42;
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  padding: 14px;
-  width: 150px;
-  margin-block: 50px;
+.umov__buttons {
+  display: flex;
+  flex-direction: column; // Stack buttons vertically
+  align-items: center; // Center buttons horizontally
+  gap: 10px; // Space between buttons
+  margin: 20px 0; // Vertical space before and after the button container
 }
+
+.vigoda {
+  background-color: #ecbc42; // Eye-catching color
+  color: black; // Contrasting text color for readability
+  text-decoration: none; // No underline
+  text-align: center; // Center text within the button
+  padding: 12px 24px; // Adequate padding for touch targets
+  width: 80%; // Width to make it visually significant but not full-width
+  max-width: 300px; // Maximum width to prevent overly wide buttons on larger screens
+  border-radius: 20px; // Rounded corners for a modern look
+  display: block; // Ensure the link takes the shape of a button
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15); // Subtle shadow for 3D effect
+  transition: background-color 0.3s, transform 0.3s; // Smooth transition for interactions
+  border: none; // Ensures no browser default borders
+  cursor: pointer; // Makes the mouse cursor a pointer on hover
+
+  &:hover, &:focus {
+    background-color: darken(#ecbc42, 10%); // Darken on hover/focus for feedback
+    transform: translateY(-2px); // Slight raise to indicate active interaction
+  }
+
+  &:active {
+    background-color: lighten(#ecbc42, 10%); // Lighten on active press
+    transform: translateY(1px); // Simulate button press
+  }
+}
+

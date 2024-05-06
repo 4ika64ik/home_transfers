@@ -13,7 +13,7 @@ function Sotr() {
                   <div className={s.sotr__item}>Бесплатное жильё</div>
                 </div>
                 <div className={s.sotr__block}>
-                  <div className={s.sotr__item}>Полностью исправны автомобилити VIP класса</div>
+                  <div className={s.sotr__item}>Полностью исправны автомобили VIP класса</div>
                   <div className={s.sotr__item}>Медецинская страховка на роботе за наш счёт</div>
                 </div>
                 <div className={s.sotr__block}>

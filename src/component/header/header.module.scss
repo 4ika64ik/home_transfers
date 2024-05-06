@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   @include on-desktop {
     height: 100vh;
@@ -59,7 +60,7 @@
   display: none;
 
   @include on-tablet {
-    display: block;
+    display: flex;
   }
 
   &__item {
@@ -67,6 +68,7 @@
     color: white;
     margin-left: 30px;
     position: relative;
+    transition: color 0.3s;
 
     &::before {
       content: '';
@@ -83,14 +85,19 @@
       transform-origin: left;
     }
 
+    &:hover {
+      color: #ecbc42;
+    }
+
     &:hover::before {
       transform: scale(1);
     }
 
     &_act {
       border: 2px solid #ecbc42;
-      padding: 15px;
+      padding: 10px 15px;
       border-radius: 20px;
+      margin-left: 0;
 
       &:before {
         display: none;
@@ -133,6 +140,9 @@
 .infoe {
   display: flex;
   flex-direction: column;
+  align-items: center; // Centers the children (like your button) horizontally
+  justify-content: center; // Optional, if you also want vertical centering
+  width: 100%; // Takes full width of its parent to center content correctly
 
   @include on-tablet {
     margin-right: 20px;
@@ -183,18 +193,24 @@
 .button {
   margin-block: 30px 40px;
   color: white;
-  padding: 25px 48px;
+  padding: 20px 40px;
   background-color: #ecbc42;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
   border-radius: 50px;
   text-decoration: none;
   text-align: center;
   transition: all 0.3s;
+  width: 180px;
 
   &:hover {
     background-color: #cea338;
+  }
+
+  @include on-desktop {
+    padding: 25px 48px;
+    font-size: 20px;
   }
 }
 

@@ -14,19 +14,25 @@
   padding: 50px 20px;
   max-width: 400px;
   margin-inline: auto;
+  background-color: #f8f9fa; // светлый фон для контраста
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // добавляем тень для глубины
+  transition: all 0.3s ease; // плавный переход при изменении
 
   @include on-tablet {
     max-width: 500px;
+    padding: 60px 30px; // увеличиваем отступы для больших экранов
   }
 
   @include on-desktop {
     max-width: 600px;
+    padding: 70px 40px; // еще больше отступы для десктопов
   }
 
   &__title {
     margin: 0;
     margin-bottom: 25px;
     font-size: 30px;
+    color: #333; // темный цвет текста для читаемости
 
     @include on-tablet {
       font-size: 50px;
@@ -39,6 +45,8 @@
 
   &__info {
     margin: 0;
+    color: #555; // чуть светлее цвет для информационного текста
+    line-height: 1.6; // улучшенная читаемость
 
     @include on-tablet {
       font-size: 20px;

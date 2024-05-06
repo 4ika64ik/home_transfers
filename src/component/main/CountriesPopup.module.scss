@@ -1,0 +1,58 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); // Полупрозрачный темный фон для фокуса на попап
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #ffffff; // Чистый белый фон
+  padding: 30px; // Больше отступов для лучшей визуальной изоляции контента
+  border-radius: 15px; // Скругленные углы для современного вида
+  width: 90%; // Больше ширины для лучшего отображения на мобильных устройствах
+  max-width: 500px; // Больший максимальный размер для улучшения читаемости на десктопах
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); // Более выразительная тень для визуальной глубины
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px; // Регулировка позиции для лучшего доступа
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555; // Темный цвет для видимости на белом фоне
+  &:hover {
+    color: #000; // Черный при наведении для улучшения интерактивности
+  }
+}
+
+.popupTitle {
+  text-align: center;
+  margin-bottom: 30px; // Увеличенный отступ снизу
+  font-size: 24px; // Больший размер шрифта для лучшего визуального воздействия
+  color: #333; // Темно-серый для современного вида
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif; // Современный шрифт для лучшей читаемости
+
+  td {
+    padding: 12px; // Больше пространства для текста в ячейках
+    border-bottom: 2px solid #eee; // Толще и светлее линия для разделения
+    &:last-child {
+      border-bottom: none; // Убрать линию у последнего элемента
+    }
+  }
+}
