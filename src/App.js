@@ -11,14 +11,16 @@ function App() {
   useEffect(() => {
     // Advanced Matching
     const advancedMatching = {}; 
-    // Опции для конфигурации пикселя
+    // Options for Pixel configuration
     const options = {
-      autoConfig: true,  // set to true if you want automatic configuration
+      autoConfig: true,  // set to true for automatic configuration
       debug: false,      // enable logs for debugging
     };
-    // Инициализация Facebook Pixel
+    // Initialize Facebook Pixel
     ReactPixel.init('2211111362560772', advancedMatching, options);
-    ReactPixel.pageView(); // Отправить событие просмотра страницы
+    ReactPixel.pageView(); // Send page view event
+
+    // Additional scripts or setups can be placed here if needed
   }, []);
 
   return (
@@ -27,7 +29,7 @@ function App() {
       <Menu />
       <Main />
       <Footer />
-      <YMInitializer accounts={[97170920]} options={{ webvisor: true }} />
+      <YMInitializer accounts={[97226854]} options={{ webvisor: true }} />
     </div>
   );
 }
